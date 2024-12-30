@@ -6,7 +6,9 @@ DBConnect()
 const categoryRoute = require('./routes/category-route')
 const userRoute = require('./routes/user-route')
 const newsRoute = require('./routes/news-route')
+const path = require('path')
 
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 

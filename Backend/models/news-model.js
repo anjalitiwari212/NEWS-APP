@@ -7,7 +7,9 @@ const newsSchema = new mongoose.Schema({
   content: {type: String,required: true},
   author: {type: String,required: true},
   createdAt: {type: Date,default: Date.now},
-  category: {type: String,required: true}
+  category: {type: String,required: true},
+  link: {type: String, required: true},
+  image: {type: String, required: true},
 });
 
 function validateNews(data){
@@ -16,7 +18,9 @@ function validateNews(data){
         content: Joi.string().required(),
         author: Joi.string().required(),
         createdAt: Joi.date().default(()=>new Date()),
-        category: Joi.string().required()
+        category: Joi.string().required(),
+        link:Joi.string().required(),
+        image:Joi.string().required(),
       });
      const {error} =  schema.validate(data)
      return error?.message
